@@ -51,7 +51,7 @@ int main()
 {
     fast ;
 #ifndef ONLINE_JUDGE
-    freopen("input.txt","r",stdin);
+    freopen("input","r",stdin);
     //freopen("output.txt","w",stdout) ;
 #endif
     ll i,x,y,cs,node,e ;
