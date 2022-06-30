@@ -71,8 +71,6 @@ void uni(ll x, ll y)
     }
 }
 
-//vector<ll>par,siz;
-//
 //struct edge
 //{
 //    ll u,v;
@@ -90,33 +88,7 @@ void uni(ll x, ll y)
 //{
 //    return a.w<b.w+eps;
 //}
-//
-//void init(ll x)
-//{
-//    ll i;
-//    par.resize(x+1);
-//    siz.resize(x+1,1);
-//    for(i=0 ; i<=x ; i++)
-//        par[i]=i;
-//}
-//
-//ll find(ll x)
-//{
-//    return par[x]==x ? x : par[x]=find(par[x]);
-//}
-//
-//void uni(ll x, ll y)
-//{
-//    x=find(x);
-//    y=find(y);
-//    if(x!=y)
-//    {
-//        if(siz[x]<siz[y])
-//            swap(x,y);
-//        par[y]=x;
-//        siz[x]+=siz[y];
-//    }
-//}
+
 
 int main()
 {
