@@ -127,17 +127,6 @@ ll sod(ll n)
     return divsum;
 }
 
-// ll bigmod(ll b, ll p, ll m)
-// {
-//     if(p == 0)
-//         return 1 ;
-//     ll x = bigmod(b,p/2,m)%m ;
-//     if(p & 1)
-//         return (b * x * x)%m ;
-//     else
-//         return (x * x)%m ;
-// }
-
 ll bigmod(ll b , ll p , ll m)
 {
     if(p == 0) return 1 ;
@@ -149,11 +138,34 @@ ll bigmod(ll b , ll p , ll m)
     return x;
 }
 
-int gcd(int a, int b)
+ll ex_gcd(ll a, ll b, ll &x, ll &y)
 {
-    if(a == 0)
-        return b ;
-    return gcd(b%a,a) ;
+    if(b == 0)
+    {
+        x = 1;
+        y = 0;
+        return a;
+    }
+    ll x1, y1;
+    ll d = ex_gcd(b,a%b,x1,y1);
+    x = y1;
+    y = x1 - y1*(a/b);
+    return d;
+}
+
+ll inverse(ll a, ll m)
+{
+    ll x, y;
+    ll g = ex_gcd(a,m,x,y);
+    if(g != 1) return -1;
+    return (x % m + m) % m;
+}
+
+ll gcd(ll a, ll b)
+{
+    // if(b == 0) return a ;
+    // else return gcd(b,a%b) ;
+    return (b==0) ? a : gcd(b,a%b);
 }
 
 ll lcm(ll a, ll b)
@@ -185,43 +197,6 @@ vector<ll> d2b(int n)
     reverse(all(binary));
     return binary;
 }
-
-// int bigmod(int base , int power , int mod)
-// {
-//    if(power == 0) return 1 ;
-//    else if(power % 2 == 0)
-//    {
-//        int p1 = bigmod(base , power / 2 , mod) % mod ;
-//        return (p1 * p1) % mod ;
-//    }
-//    else
-//    {
-//        int p1 = base % mod ;
-//        int p2 = bigmod(base , power-1 , mod) % mod ;
-//        return (p1 * p2) % mod ;
-//    }
-// }
-
-//void sieve()
-//{
-//    ll i , j ;
-//    for(i = 2 ; i < mx ; i+=2)
-//        if(i > 2) mark[i] = true ;
-//    prime.pb(2) ;
-//    for(i = 3 ; i * i <= mx ; i+=2)
-//    {
-//        if(mark[i] != 1)
-//        {
-//            for(j = i * i ; j < mx ; j = j + i + i)
-//                mark[j] = true ;
-//        }
-//    }
-//    for(i = 3 ; i < mx ; i+=2)
-//    {
-//        if(mark[i] != 1)
-//            prime.pb(i) ;
-//    }
-//}
 
 int countdiv(int m)
 {
