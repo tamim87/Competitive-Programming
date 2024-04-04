@@ -39,8 +39,10 @@ int binsearchR(int lo, int hi, int z)
     return -1 ;
 }
 
-int binsearch(int hi, int lo, int z)
+int binsearch(vector<int>& v, int z)
 {
+    int n = v.size();
+    int lo = 0, hi = n-1;
     while(lo <= hi)
     {
         int mid = lo + (hi - lo) / 2 ;
